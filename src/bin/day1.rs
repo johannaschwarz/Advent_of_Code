@@ -1,22 +1,39 @@
-use std::{fs::{File, self}, io::{BufReader, BufRead}};
+use std::{
+    fs::File,
+    io::{BufRead, BufReader},
+};
 
 fn main() {
-    let file = fs::read_to_string("./input/day1puzzle1.txt").expect("failed to read file");
+    let file = File::open("./input/day1puzzle1.txt").unwrap();
+    let reader = BufReader::new(file);
     let mut vec: Vec<i32> = Vec::new();
-    //read lines:
-    for line in file.iter() {
-        print!("{line}");
+
+    let mut calories = 0;
+    for line in reader.lines() {
+        let line = line.unwrap();
         let line = line.trim();
         if !line.is_empty() {
-            let mut calories = 0;
-            calories += line.parse::<i32>().expect("parse went wrong");
+            calories += line.parse::<i32>().unwrap();
             vec.push(calories);
+        } else {
+            calories = 0;
         }
     }
 
-    //find max:
-    let max = vec.iter().max().unwrap();
+    //find max (part one):
+    //let max = vec.iter().max().unwrap();
 
-    println!("max value: {}", max);
+    //find sum of max 3 (part two):
+    vec.sort();
 
+    println!("Vector:");
+    println!("{:#?}", vec);
+
+    vec.reverse();
+    vec.truncate(3);
+    let sum: i32 = vec.iter().sum();
+    println!("Vector:");
+    println!("{:#?}", vec);
+
+    println!("max 3 sum value: {}", sum);
 }
