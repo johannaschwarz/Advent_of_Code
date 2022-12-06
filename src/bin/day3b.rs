@@ -1,4 +1,7 @@
-use std::{fs::File, io::{BufRead, BufReader}};
+use std::{
+    fs::File,
+    io::{BufRead, BufReader},
+};
 
 fn main() {
     let file = File::open("./input/day3.txt").unwrap();
@@ -15,9 +18,9 @@ fn main() {
         reader.read_line(&mut elf_two).unwrap();
         reader.read_line(&mut elf_three).unwrap();
 
-       // print!("{}\n{}\n{}\n\n", elf_one, elf_two, elf_three);
-        
-        let mut commons = String::new(); 
+        // print!("{}\n{}\n{}\n\n", elf_one, elf_two, elf_three);
+
+        let mut commons = String::new();
         let mut badge = 0 as char;
 
         for c in elf_one.chars() {

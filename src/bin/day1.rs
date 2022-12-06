@@ -4,7 +4,7 @@ use std::{
 };
 
 fn main() {
-    let file = File::open("./input/day1puzzle1.txt").unwrap();
+    let file = File::open("./input/day1.txt").unwrap();
     let reader = BufReader::new(file);
     let mut vec: Vec<i32> = Vec::new();
 

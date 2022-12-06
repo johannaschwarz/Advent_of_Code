@@ -29,14 +29,14 @@ fn letter_to_score(letter: char) -> Option<i32> {
     }
 }
 
-fn strategy_to_score(opponent: i32, strategy:i32) -> Option<i32> {
+fn strategy_to_score(opponent: i32, strategy: i32) -> Option<i32> {
     match strategy {
         1 => match opponent {
             1 => Some(3),
             2 => Some(1),
             3 => Some(2),
             _ => None,
-        }
+        },
         2 => Some(opponent + 3),
         3 => match opponent {
             1 => Some(6 + 2),
@@ -45,6 +45,5 @@ fn strategy_to_score(opponent: i32, strategy:i32) -> Option<i32> {
             _ => None,
         },
         _ => None,
-
     }
 }

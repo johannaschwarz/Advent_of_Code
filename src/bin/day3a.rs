@@ -1,5 +1,7 @@
-use std::{fs::File, io::{BufReader, BufRead}};
-
+use std::{
+    fs::File,
+    io::{BufRead, BufReader},
+};
 
 fn main() {
     let file = File::open("./input/day3.txt").unwrap();
