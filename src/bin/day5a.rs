@@ -22,12 +22,11 @@ fn main() {
 
         let mut chars = line.chars();
         for i in 0..last_stack_number {
-            let c: char;
-            if i == 0 {
-                c = chars.nth(1).unwrap();
+            let c: char = if i == 0 {
+                chars.nth(1).unwrap()
             } else {
-                c = chars.nth(3).unwrap();
-            }
+                chars.nth(3).unwrap()
+            };
             if !c.is_whitespace() {
                 stacks[i as usize].push(c);
             }
@@ -42,15 +41,14 @@ fn main() {
         let mut chars = instruction.chars();
 
         let mut quantity = chars.nth(5).unwrap().to_string();
-        let digit_two = chars.nth(0).unwrap();
+        let digit_two = chars.next().unwrap();
         if digit_two.is_ascii_digit() {
             quantity.push(digit_two);
             i += 1;
         }
         let quantity = quantity.parse().unwrap();
 
-        let from_stack = chars.nth(5 + i).unwrap();
-        let from_stack = from_stack.to_digit(10).unwrap() as usize;
+        let from_stack = chars.nth(5 + i).unwrap().to_digit(10).unwrap() as usize;
         let to_stack = chars.nth(4).unwrap().to_digit(10).unwrap() as usize;
 
         //transfer units
@@ -59,9 +57,11 @@ fn main() {
             stacks[to_stack - 1].push(unit);
         }
     }
+
     let mut top_units = String::new();
     for i in 0..last_stack_number {
         top_units.push(stacks[i as usize].pop().unwrap());
     }
+
     println!("Top units: {}", top_units);
 }

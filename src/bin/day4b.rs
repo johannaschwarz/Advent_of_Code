@@ -28,10 +28,8 @@ fn main() {
             elf_two.next().unwrap().parse().unwrap(),
         );
 
-        if ((elf_one.0 <= elf_two.0 && elf_one.1 >= elf_two.0)
-            || (elf_one.0 <= elf_two.1 && elf_one.0 >= elf_two.0))
-            || ((elf_two.0 <= elf_one.0 && elf_two.1 >= elf_one.0)
-                || (elf_two.0 <= elf_one.1 && elf_two.0 >= elf_one.0))
+        if (elf_one.0 <= elf_two.0 && elf_one.1 >= elf_two.0)
+            || (elf_one.0 <= elf_two.1 && elf_one.0 >= elf_two.0)
         {
             count += 1;
         }
