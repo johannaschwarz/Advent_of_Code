@@ -2,7 +2,7 @@ use std::{
     fs::File,
     io::{BufRead, BufReader},
 };
-//test
+
 fn main() {
     let file = File::open("./input/day4.txt").unwrap();
     let reader = BufReader::new(file);
