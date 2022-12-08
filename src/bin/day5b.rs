@@ -57,7 +57,7 @@ fn main() {
             transfers.push(stacks[from_stack - 1].pop().unwrap());
         }
         transfers.reverse();
-        
+
         for unit in transfers {
             stacks[to_stack - 1].push(unit);
         }
